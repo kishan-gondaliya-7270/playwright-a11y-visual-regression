@@ -61,6 +61,7 @@ jobs:
       # 10. Upload Accessibility Reports as Artifact
       - name: Upload Accessibility Reports
         uses: actions/upload-artifact@v3
+        if: success() || failure() 
         with:
           name: accessibility-report
           path: accessibility-report
@@ -72,6 +73,7 @@ jobs:
         if: always()
 
       - name: Upload Allure Report as Artifact
+        if: success() || failure() 
         uses: actions/upload-artifact@v3
         with:
           name: allure-report

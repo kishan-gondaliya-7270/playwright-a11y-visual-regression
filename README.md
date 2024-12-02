@@ -44,7 +44,7 @@ To use this framework, follow these steps:
 
 2. Navigate to the project directory:
    ```bash
-   cd playwright-framework-rt
+   cd playwright-a11y-visual-regression
    ```
 
 3. Install dependencies:
@@ -137,6 +137,7 @@ Feel free to connect with me if you have any questions, feedback, or just want t
 - Profile : https://kishan-gondaliya-7270.vercel.app/
 - Email : kishan.gondaliya7270@gmail.com
 
-#### Testing, because turning the computer off and on again isn’t an option!! 
+
+Testing – it’s like doing a puzzle where half the pieces are missing, and the other half keep changing shape. But hey, we made it through, and these tests are here to help ensure that things (mostly) work as expected.
 
 Happy Testing!! 🚀
