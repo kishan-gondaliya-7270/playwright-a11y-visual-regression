@@ -21,8 +21,7 @@
   "test:accessibility": "npx playwright test --project=chromium --grep '@a11y'",
   "test:visual": "npx playwright test --grep '@visual'",
   "test:ui": "npx playwright test --ui",
-  "test:debug": "npx playwright test --project=chromium --debug",
-  "prepare": "npm run install:browsers && npm run format"
+  "test:debug": "npx playwright test --project=chromium --debug"
   },
   "devDependencies": {
     "@playwright/test": "^1.49.0",

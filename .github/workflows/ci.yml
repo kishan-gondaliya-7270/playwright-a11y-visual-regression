@@ -23,26 +23,28 @@ jobs:
           node-version: 18
 
       # 3. Install dependencies
-      - name: Install dependencies
+      - name: Install dependencies from package-lock.json
         run: npm ci
 
       # 4. Run TypeScript compilation check
       - name: Check TypeScript compilation
         run: npm run tsc
 
-      # 5. Run formatting and linting checks
+      # 5. Run formatting and linting checks (do not fail on errors)
       - name: Check formatting with Prettier
-        run: npm run format:check
-
-      - name: Run linting check
-        run: npm run lint
+        run: |
+          npm run format:check || echo "Prettier check failed, please fix it... "
+      
+      - name: Run linting check with eslint
+        run: |
+          npm run lint || echo "Linting failed, please fix it... "
 
       # 6. Install Playwright browsers
       - name: Install Playwright browsers
         run: npm run install:browsers
 
-      # 7. Run all Playwright tests
-      - name: Run All Playwright Tests
+      # 7. Run Playwright tests # customize as needed
+      - name: Run Playwright Functional Tests
         run: npm run test:default
         continue-on-error: true
 

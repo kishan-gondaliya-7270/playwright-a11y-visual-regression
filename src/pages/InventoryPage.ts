@@ -1,5 +1,5 @@
 import { expect, Page } from "@playwright/test";
-import urls from "../fixtures/data/urls.json" with { type: "json" };
+import urls from "../fixtures/data/urls.json";
 import products from "../fixtures/data/products.json";
 
 export class InventoryPage {
