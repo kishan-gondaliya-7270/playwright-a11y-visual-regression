@@ -1,5 +1,5 @@
 import { expect, Page } from "@playwright/test";
-import urls from "../fixtures/data/urls.json" with { type: "json" };
+import urls from "../fixtures/data/urls.json";
 
 export class LoginPage {
   constructor(private _page: Page) {}

@@ -1,6 +1,6 @@
 import { expect, Page } from "@playwright/test";
 import urls from "../fixtures/data/urls.json" with { type: "json" };
-import products from "../fixtures/data/products.json" with { type: "json" };
+import products from "../fixtures/data/products.json";
 
 export class InventoryPage {
   constructor(private _page: Page) {}
