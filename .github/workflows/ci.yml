@@ -45,7 +45,7 @@ jobs:
 
       # 7. Run Playwright tests # customize as needed
       - name: Run Playwright Functional Tests
-        run: npm run test:default
+        run: npm run test:default-ci
         continue-on-error: true
 
       # 8. Run Accessibility Tests

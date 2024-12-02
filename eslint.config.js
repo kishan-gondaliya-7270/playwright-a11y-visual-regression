@@ -15,7 +15,7 @@ export default [
       '.env',
       'package-lock.json',
     ],
-    files: ['src/**/*.ts'], // Specify the files to lint
+    files: ['/src/**/*.ts'], // Specify the files to lint
     languageOptions: {
       parser: typescriptEslintParser,
     },
