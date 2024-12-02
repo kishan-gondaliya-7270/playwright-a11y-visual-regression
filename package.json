@@ -1,0 +1,88 @@
+{
+  "name": "Kishan-Sauce-Demo-RTC",
+  "description": "Framework to run functional, visual, and accessibility tests with advanced reporting and logging using TypeScript and Playwright.",
+  "version": "1.0.0",
+  "author": "Kishan Gondaliya",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+   "tsc": "tsc",
+  "install:browsers": "npx playwright install",
+  "format": "npx prettier --write .",
+  "format:check": "npx prettier --check .",
+  "lint": "npx eslint './src/**/*.ts'",
+  "lint:fix": "npx eslint './src/**/*.ts' --fix",
+  "test:default": "npx playwright test --project=chromium --grep-invert '@a11y|@visual' --headed",
+  "test:report": "npx playwright show-report reports",
+  "test:chromium": "npx playwright test --project=chromium --headed",
+  "test:firefox": "npx playwright test --project=firefox --headed",
+  "test:webkit": "npx playwright test --project=webkit --headed",
+  "test:all-browsers": "npx playwright test",
+  "test:accessibility": "npx playwright test --project=chromium --grep '@a11y'",
+  "test:visual": "npx playwright test --grep '@visual'",
+  "test:ui": "npx playwright test --ui",
+  "test:debug": "npx playwright test --project=chromium --debug",
+  "prepare": "npm run install:browsers && npm run format"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "allure-commandline": "^2.31.0",
+    "allure-playwright": "^3.0.6",
+    "eslint": "^8.57.1",
+    "eslint-plugin-playwright": "^2.1.0",
+    "prettier": "^2.3.2",
+    "typescript": "^5.4.5",
+    "@types/node": "^22.9.0",
+    "axe-core": "^4.10.2",
+    "axe-html-reporter": "^2.2.11"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "playwright": "^1.44.1"
+  },
+  "playwright": {
+    "reporters": [
+      [
+        "allure-playwright"
+      ]
+    ],
+    "projects": [
+      {
+        "name": "chromium",
+        "use": {
+          "browserName": "chromium"
+        }
+      },
+      {
+        "name": "firefox",
+        "use": {
+          "browserName": "firefox"
+        }
+      },
+      {
+        "name": "webkit",
+        "use": {
+          "browserName": "webkit"
+        }
+      }
+    ],
+    "use": {
+      "baseURL": "https://www.saucedemo.com",
+      "headless": true,
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "ignoreHTTPSErrors": true,
+      "screenshot": "on",
+      "video": "on",
+      "trace": "on-first-retry"
+    }
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  }
+}
