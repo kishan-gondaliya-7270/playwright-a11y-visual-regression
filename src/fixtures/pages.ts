@@ -1,6 +1,6 @@
-import { test as base } from "@playwright/test";
-import { LoginPage } from "../pages/LoginPage";
-import { InventoryPage } from "../pages/InventoryPage";
+import { test as base } from '@playwright/test';
+import { LoginPage } from '../pages/LoginPage';
+import { InventoryPage } from '../pages/InventoryPage';
 
 type Pages = {
   loginPage: LoginPage;
@@ -18,4 +18,4 @@ export const test = base.extend<Pages>({
   },
 });
 
-export { expect } from "@playwright/test";
+export { expect } from '@playwright/test';

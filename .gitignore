@@ -1,5 +1,6 @@
 # Node.js dependencies
 node_modules/
+dist
 
 # Playwright test results and reports
 allure-results/

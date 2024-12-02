@@ -1,4 +1,3 @@
-
 # TypeScript Playwright Framework
 
 ## Introduction
@@ -38,16 +37,19 @@ Before you get started, ensure the following are installed on your machine:
 To use this framework, follow these steps:
 
 1. Clone the repository from GitHub:
+
    ```bash
    git clone https://github.com/kishan-gondaliya-7270/playwright-a11y-visual-regression.git
    ```
 
 2. Navigate to the project directory:
+
    ```bash
    cd playwright-a11y-visual-regression
    ```
 
 3. Install dependencies:
+
    ```bash
    npm install
    ```
@@ -60,12 +62,15 @@ To use this framework, follow these steps:
 ## Running Tests
 
 ### 1. Run All Tests
+
 To execute all tests in the framework:
+
 ```bash
 npx playwright test
 ```
 
 ### 2. Run Specific Test Suite
+
 - **UI Functional Tests**:
   ```bash
   npm run test:default
@@ -80,6 +85,7 @@ npx playwright test
   ```
 
 ### 3. Generate Reports
+
 - After running tests, generate an Allure report:
   ```bash
   allure generate allure-results --clean -o allure-report
@@ -123,7 +129,6 @@ playwright-framework-rt
 - **Allure Integration**: Captures detailed test execution results, including screenshots, videos, and traces.
 - **Accessibility Testing**: Uses Axe-Core to validate WCAG compliance and generate accessibility reports.
 
-
 ## License
 
 This project is licensed under the MIT License.
@@ -131,12 +136,12 @@ This project is licensed under the MIT License.
 ---
 
 ### About Me
+
 Feel free to connect with me if you have any questions, feedback, or just want to talk about testing!
 
 - LinkedIn : https://www.linkedin.com/in/kishan-gondaliya/
 - Profile : https://kishan-gondaliya-7270.vercel.app/
 - Email : kishan.gondaliya7270@gmail.com
-
 
 Testing – it’s like doing a puzzle where half the pieces are missing, and the other half keep changing shape. But hey, we made it through, and these tests are here to help ensure that things (mostly) work as expected.
 

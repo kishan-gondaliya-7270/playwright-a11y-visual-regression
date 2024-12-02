@@ -34,7 +34,7 @@ jobs:
       - name: Check formatting with Prettier
         run: |
           npm run format:check || echo "Prettier check failed, please fix it... "
-      
+
       - name: Run linting check with eslint
         run: |
           npm run lint || echo "Linting failed, please fix it... "
@@ -63,7 +63,7 @@ jobs:
       # 10. Upload Accessibility Reports as Artifact
       - name: Upload Accessibility Reports
         uses: actions/upload-artifact@v3
-        if: success() || failure() 
+        if: success() || failure()
         with:
           name: accessibility-report
           path: accessibility-report
@@ -75,7 +75,7 @@ jobs:
         if: always()
 
       - name: Upload Allure Report as Artifact
-        if: success() || failure() 
+        if: success() || failure()
         uses: actions/upload-artifact@v3
         with:
           name: allure-report

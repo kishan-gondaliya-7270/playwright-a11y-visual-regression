@@ -1,10 +1,15 @@
-import { test } from "../../fixtures/pages";
-import users from "../../fixtures/data/users.json";
-import { sleep } from "../../utils/sleep"; // For development only
+import { test } from '../../fixtures/pages';
+import { getUserData } from '../../helpers/dataHelper';
+import { sleep } from '../../utils/sleep'; // For development only
 
-test("Complete checkout flow", async ({ loginPage, inventoryPage }) => {
+// const users = await import('../../fixtures/data/users.json', {
+//   assert: { type: 'json' },
+// });
 
-  const baseUrl = process.env.BASE_URL || "https://www.saucedemo.com";
+const users = await getUserData();
+
+test('Complete checkout flow', async ({ loginPage, inventoryPage }) => {
+  const baseUrl = process.env.BASE_URL || 'https://www.saucedemo.com';
   await loginPage.navigateTo(baseUrl);
 
   try {

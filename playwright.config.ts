@@ -1,13 +1,13 @@
-import { PlaywrightTestConfig } from "@playwright/test";
-import dotenv from "dotenv";
+import { PlaywrightTestConfig } from '@playwright/test';
+import dotenv from 'dotenv';
 
 // Load environment variables from the `.env` file
 dotenv.config();
 
 const config: PlaywrightTestConfig = {
   // **Test Files**
-  testDir: "./src/tests/",
-  testMatch: "*.spec.ts",
+  testDir: './src/tests/',
+  testMatch: '*.spec.ts',
 
   // **Timeouts**
   timeout: 60000, // Global timeout for each test
@@ -18,50 +18,50 @@ const config: PlaywrightTestConfig = {
 
   // **Reporters**
   reporter: [
-    ["list"], // Terminal output in list format
-    ["allure-playwright"], // Allure reporting
+    ['list'], // Terminal output in list format
+    ['allure-playwright'], // Allure reporting
   ],
 
   // **Shared Settings**
   use: {
-    baseURL: process.env.BASE_URL || "https://www.saucedemo.com", // Base URL for tests
+    baseURL: process.env.BASE_URL || 'https://www.saucedemo.com', // Base URL for tests
     viewport: { width: 1280, height: 720 }, // Default viewport size
     ignoreHTTPSErrors: true, // Ignore HTTPS errors
-    screenshot: "only-on-failure", // Take screenshots only on failure
-    video: "retain-on-failure", // Retain videos for failed tests
-    trace: "on-first-retry", // Enable trace on first retry
+    screenshot: 'only-on-failure', // Take screenshots only on failure
+    video: 'retain-on-failure', // Retain videos for failed tests
+    trace: 'on-first-retry', // Enable trace on first retry
   },
 
   // **Projects for Different Browsers**
   projects: [
     {
-      name: "chromium", // Chromium-based browsers
+      name: 'chromium', // Chromium-based browsers
       use: {
-        browserName: "chromium",
+        browserName: 'chromium',
         headless: true,
-        video: "retain-on-failure",
+        video: 'retain-on-failure',
       },
     },
     {
-      name: "firefox", // Firefox browser
+      name: 'firefox', // Firefox browser
       use: {
-        browserName: "firefox",
+        browserName: 'firefox',
         headless: true,
-        video: "retain-on-failure",
+        video: 'retain-on-failure',
       },
     },
     {
-      name: "webkit", // WebKit browser
+      name: 'webkit', // WebKit browser
       use: {
-        browserName: "webkit",
+        browserName: 'webkit',
         headless: true,
-        video: "retain-on-failure",
+        video: 'retain-on-failure',
       },
     },
   ],
 
   // **Output Directory**
-  outputDir: "./test-results", // Directory for artifacts like screenshots and traces
+  outputDir: './test-results', // Directory for artifacts like screenshots and traces
 };
 
 export default config;

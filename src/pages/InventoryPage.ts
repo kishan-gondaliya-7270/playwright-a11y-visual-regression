@@ -1,6 +1,16 @@
-import { expect, Page } from "@playwright/test";
-import urls from "../fixtures/data/urls.json";
-import products from "../fixtures/data/products.json";
+import { expect, Page } from '@playwright/test';
+import { getProductData, getUrlData } from '../helpers/dataHelper';
+
+// const urls = await import('../fixtures/data/urls.json', {
+//   assert: { type: 'json' },
+// });
+
+// const products = await import('../fixtures/data/products.json', {
+//   assert: { type: 'json' },
+// });
+
+const urls = await getUrlData();
+const products = await getProductData();
 
 export class InventoryPage {
   constructor(private _page: Page) {}
@@ -67,7 +77,7 @@ export class InventoryPage {
 
   async getItemPrices(): Promise<number[]> {
     const prices = await this.itemPrices.allTextContents();
-    return prices.map(price => parseFloat(price.replace('$', '').trim()));
+    return prices.map((price) => parseFloat(price.replace('$', '').trim()));
   }
 
   async assertOnInventoryPage() {
@@ -75,7 +85,7 @@ export class InventoryPage {
     await expect(this.addToCartButton).toBeVisible();
     const title = await this.pageTitle.textContent();
     if (title !== products.invetory_page_title) {
-      throw new Error("Login assertion failed");
+      throw new Error('Login assertion failed');
     }
   }
 }

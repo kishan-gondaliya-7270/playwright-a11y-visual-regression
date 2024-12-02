@@ -1,4 +1,4 @@
-import { Locator, Page, expect } from "@playwright/test";
+import { Locator, Page, expect } from '@playwright/test';
 
 export class VisualHelper {
   /**
@@ -24,7 +24,7 @@ export class VisualHelper {
       // Take a full-page screenshot with optional masking
       await expect(page).toHaveScreenshot(snapshotFileName, {
         mask: options?.mask || undefined,
-        animations: "disabled", // Disable animations for consistency
+        animations: 'disabled', // Disable animations for consistency
       });
     }
   }

@@ -1,7 +1,7 @@
-import { Page } from "@playwright/test";
-import axe from "axe-core";
-import { createHtmlReport } from "axe-html-reporter";
-import * as fs from "fs";
+import { Page } from '@playwright/test';
+import axe from 'axe-core';
+import { createHtmlReport } from 'axe-html-reporter';
+import * as fs from 'fs';
 
 export class A11yHelper {
   /**
@@ -11,7 +11,7 @@ export class A11yHelper {
   static async runA11yAudit(page: Page) {
     // Inject axe-core from a CDN into the page
     await page.addScriptTag({
-      url: "https://cdnjs.cloudflare.com/ajax/libs/axe-core/4.3.5/axe.min.js",
+      url: 'https://cdnjs.cloudflare.com/ajax/libs/axe-core/4.3.5/axe.min.js',
     });
 
     // Run the audit on the page
@@ -24,8 +24,8 @@ export class A11yHelper {
    * @param result Accessibility audit result from axe.
    * @param reportName Name of the report file (default: "a11y-report.html").
    */
-  static generateHtmlReport(result: any, reportName = "a11y-report.html") {
-    const reportDir = "accessibility-report";
+  static generateHtmlReport(result: any, reportName = 'a11y-report.html') {
+    const reportDir = 'accessibility-report';
 
     // Ensure the directory exists
     if (!fs.existsSync(reportDir)) {
@@ -42,7 +42,7 @@ export class A11yHelper {
     });
 
     console.log(
-      `Accessibility report generated at: ${reportDir + "/" + reportName}`
+      `Accessibility report generated at: ${reportDir + '/' + reportName}`
     );
   }
 
@@ -67,7 +67,7 @@ export class A11yHelper {
       // Generate HTML report
       A11yHelper.generateHtmlReport(result, `${reportName}.html`);
     } else {
-      console.log("No accessibility violations found.");
+      console.log('No accessibility violations found.');
     }
   }
 }
