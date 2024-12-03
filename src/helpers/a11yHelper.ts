@@ -1,27 +1,38 @@
 import { Page } from '@playwright/test';
-import axe from 'axe-core';
+import axeCore from 'axe-core';
 import { createHtmlReport } from 'axe-html-reporter';
 import * as fs from 'fs';
 
 export class A11yHelper {
   /**
-   * Run an accessibility audit on the page using axe-core.
+   * Injects axe-core into the page context.
    * @param page Playwright Page object.
    */
+  static async injectAxe(page: Page) {
+    // Inject axe-core script content into the page
+    await page.addScriptTag({ content: axeCore.source });
+  }
+
+  /**
+   * Run an accessibility audit on the page using axe-core.
+   * @param page Playwright Page object.
+   * @returns Accessibility audit result from axe-core.
+   */
   static async runA11yAudit(page: Page) {
-    // Inject axe-core from a CDN into the page
-    await page.addScriptTag({
-      url: 'https://cdnjs.cloudflare.com/ajax/libs/axe-core/4.3.5/axe.min.js',
+    // Ensure axe-core is injected
+    await this.injectAxe(page);
+
+    // Run the audit in the page context
+    const result = await page.evaluate(() => {
+      return window.axe.run(); // axe is available globally after injection
     });
 
-    // Run the audit on the page
-    const result = await page.evaluate(([axe]) => axe.run(), [axe]);
     return result;
   }
 
   /**
    * Generate an HTML report for accessibility violations.
-   * @param result Accessibility audit result from axe.
+   * @param result Accessibility audit result from axe-core.
    * @param reportName Name of the report file (default: "a11y-report.html").
    */
   static generateHtmlReport(result: any, reportName = 'a11y-report.html') {

@@ -20,7 +20,7 @@
     "test:webkit": "npx playwright test --project=webkit --headed",
     "test:all-browsers": "npx playwright test",
     "test:accessibility": "npx playwright test --project=chromium --grep '@a11y'",
-    "test:visual": "npx playwright test --grep '@visual'",
+    "test:visual": "npx playwright test  --project=chromium --grep '@visual'",
     "test:ui": "npx playwright test --ui",
     "test:debug": "npx playwright test --project=chromium --debug"
   },
