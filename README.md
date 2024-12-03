@@ -101,14 +101,18 @@ Below is an overview of the folder structure for better understanding:
 
 ```
 playwright-framework-rt
-├── .github/               # GitHub workflows for CI/CD
+├── .github/               # GitHub workflow for CI/CD
 ├── accessibility-report/  # Stores accessibility test reports
 ├── allure-results/        # Allure test result files
 ├── node_modules/          # Node.js dependencies
 ├── src/
-│   ├── fixtures/          # Test data files
+|   ├── global.d.ts        # File to define TypeScript types globally
+│   ├── fixtures/          
+│   │   ├── data/          # Test data files
+│   │   ├── pages.ts       # File that initializes all (POM) classes
 │   ├── helpers/           # Reusable helper functions
 │   │   ├── a11yHelper.ts  # Accessibility helper logic
+│   │   ├── dataHelper.ts  # Data helper file
 │   │   ├── visualHelper.ts # Visual testing helper logic
 │   ├── pages/             # Page Object files
 │   ├── tests/             # Test files organized by type
