@@ -107,7 +107,7 @@ playwright-framework-rt
 ├── node_modules/          # Node.js dependencies
 ├── src/
 |   ├── global.d.ts        # File to define TypeScript types globally
-│   ├── fixtures/          
+│   ├── fixtures/
 │   │   ├── data/          # Test data files
 │   │   ├── pages.ts       # File that initializes all (POM) classes
 │   ├── helpers/           # Reusable helper functions
