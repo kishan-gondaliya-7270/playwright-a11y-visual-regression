@@ -97,11 +97,11 @@ jobs:
        # 12. Deploy Reports to gh-page-reports Branch
       - name: Deploy Reports to GitHub Pages
         if: always()
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: reports
-          branch: gh-page-reports
+          publish_branch: gh-pages
         env:
           PUBLISH_DIRS: |
             allure-report:/allure-report
