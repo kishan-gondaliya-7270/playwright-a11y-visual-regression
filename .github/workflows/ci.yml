@@ -97,6 +97,25 @@ jobs:
           mkdir -p reports/accessibility-report
           cp -r allure-report/* reports/allure-report/ || echo "No allure report found!"
           cp -r accessibility-report/* reports/accessibility-report/ || echo "No accessibility report found!"
+          # Create index.html
+          cat > reports/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang='en'>  
+          <head>
+            <meta charset='UTF-8'>
+            <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+            <title>Reports</title>
+          </head>  
+          <body>  
+            <h1>Test Reports</h1>  
+            <ul>  
+              <li><a href='allure-report/index.html' target='_blank'>Allure Report</a></li>  
+              <li><a href='accessibility-report/login-page.html' target='_blank'>Accessibility Report - Login Page</a></li>  
+              <li><a href='accessibility-report/inventory-page.html' target='_blank'>Accessibility Report - Inventory Page</a></li>  
+            </ul>  
+          </body>  
+          </html>
+          EOF
           ls -R reports # Optional: Debug to verify structure
 
        # 12. Deploy Reports to gh-page-reports Branch
