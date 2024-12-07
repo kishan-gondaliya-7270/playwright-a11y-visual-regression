@@ -4,6 +4,7 @@ dist
 
 # Playwright test results and reports
 allure-results/
+allure-report
 test-results/
 accessibility-report/
 
