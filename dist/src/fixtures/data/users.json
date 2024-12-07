@@ -1,0 +1,5 @@
+{
+    "validUsers": [{ "username": "standard_user", "password": "secret_sauce" }],
+    "invalidUsers": [{ "username": "error_user", "password": "secret_sauce" }],
+    "visualUsers": [{ "username": "visual_user", "password": "secret_sauce" }]
+}

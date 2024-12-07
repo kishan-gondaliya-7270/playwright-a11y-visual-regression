@@ -1,0 +1,2 @@
+HTML report was saved into the following directory /Users/kishu7270/Desktop/kishan-github/playwright-typescript-rt/playwright-framework-rt/accessibility-report/login-page.html
+Accessibility report generated at: accessibility-report/login-page.html
