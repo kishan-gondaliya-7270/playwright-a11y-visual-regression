@@ -91,6 +91,14 @@ jobs:
           path: allure-report
           overwrite: true
 
+      - name: Prepare Reports Directory
+        run: |
+          mkdir -p reports/allure-report
+          mkdir -p reports/accessibility-report
+          cp -r allure-report/* reports/allure-report/ || echo "No allure report found!"
+          cp -r accessibility-report/* reports/accessibility-report/ || echo "No accessibility report found!"
+          ls -R reports # Optional: Debug to verify structure
+
        # 12. Deploy Reports to gh-page-reports Branch
       - name: Deploy Reports to GitHub Pages
         if: always()
